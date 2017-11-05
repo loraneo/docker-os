@@ -1,0 +1,6 @@
+[epel-local]
+name=EPEL Local
+baseurl=file:///var/repo
+gpgcheck=0
+enabled=1
+priority=0
