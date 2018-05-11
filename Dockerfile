@@ -6,12 +6,14 @@ RUN rm /etc/yum.repos.d/*
 COPY repo /var/repo
 COPY epel-local.repo /etc/yum.repos.d/epel-local.repo
 
-RUN yum-config-manager --disable base/7/x86_64
-RUN yum clean all
-RUN yum repolist
+RUN set -e &&\
+    yum-config-manager --disable base/7/x86_64 &&\
+    yum clean all &&\
+    yum repolist
 
 # Update base CentOS container
-RUN yum update -y \
+RUN set -e &&\
+    yum update -y \
 	   && yum install -y wget \
 	   && yum install -y unzip \
 	   && yum install -y net-tools \
@@ -21,4 +23,5 @@ RUN yum update -y \
 	   && yum -y install openssh-clients \
 	   && yum clean all
    
-RUN groupadd ci 
+RUN set -e &&\
+    groupadd ci 
