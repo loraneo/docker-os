@@ -17,8 +17,6 @@ RUN set -e &&\
 	   && yum install -y wget \
 	   && yum install -y unzip \
 	   && yum install -y net-tools \
-	   && yum install -y tcpdump \
-	   && yum install -y git-all \
 	   && yum install -y telnet \
 	   && yum -y install openssh-clients \
 	   && yum clean all
